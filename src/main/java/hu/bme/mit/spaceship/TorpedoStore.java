@@ -8,6 +8,8 @@ import java.util.Random;
  * (Deliberately contains bugs.)
  */
 public class TorpedoStore {
+  // A single Random instance is reused for every firing: creating a new one on each
+// call is wasteful and can reduce the quality of the random sequence (Sonar java:S2119).
   private final Random generator = new Random();
 
   // rate of failing to fire torpedos [0.0, 1.0]
